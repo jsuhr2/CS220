@@ -1,0 +1,37 @@
+10 Nodes:
+ASM:  0 sec, 000001 micro sec
+C:  0 sec, 000000 micro sec
+
+100 Nodes:
+SM:  0 sec, 000000 micro sec
+C:  0 sec, 000000 micro sec
+
+1000 Nodes:
+ASM:  0 sec, 000000 micro sec
+C:  0 sec, 000000 micro sec
+
+10000 Nodes:
+ASM:  0 sec, 000000 micro sec
+C:  0 sec, 000000 micro sec
+
+100000 Nodes:
+ASM:  0 sec, 000000 micro sec
+C:  0 sec, 000000 micro sec
+
+1000000 Nodes:
+ASM:  0 sec, 000000 micro sec
+C:  0 sec, 000000 micro sec
+
+*Time recording wasn't working correctly and TA Piush said it was okay
+
+Pre-Optimization: Before oprimization, reverse_asm would be faster than reverse_c due to the fact that although there are more instructions in the assembly file, the instructions run faster than a c file whose instructions have to be translated into assembly and then run.
+
+Post-Optimization: After optimization, the number of instructions is negligable in reverse_c and reverse_asm so the times would be about the same (possibly reverse_asm is still a tiny bit faster).
+
+*Before Optimization
+Instructions in reverse_c: 35
+Instructions in revers_asm: 10
+
+*After Optimization
+Instructions in reverse_c: 17
+Instructions in reverse_asm: 10

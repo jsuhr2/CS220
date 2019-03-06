@@ -1,0 +1,15 @@
+Allocating 40 btes...
+Successfully allocated at 0x558797c84010
+free()ing memory at 0x558797c84010...DONE
+
+Allocating 40 btes...
+Successfully allocated at 0x562b0451f010
+free()ing memory at 0x562b0451f010...DONE
+
+	linux-vdso.so.1 (0x00007fff33f00000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f6b4de22000)
+	/lib64/ld-linux-x86-64.so.2 (0x000056066adef000)
+
+	linux-vdso.so.1 (0x00007fff7755b000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007f00d1801000)
+	/lib64/ld-linux-x86-64.so.2 (0x000055714258f000)

@@ -1,0 +1,46 @@
+The size of the structures differs because of the afftect of padding on memory. Because the CPU can't analyze the long if it is split up into 2 slots, it adds 0's after the shorts to get the long in it's own slot as it needs all 8 bytes, and then the next short must be declared after so it gets it's own slot as well, followed by 0's(3 slots). This could be combatted by declaring the shorts together so that they exist on an slot together and the long has it's own (2 slots).
+
+GDB Output:
+
+31		printf("%d\n", (int) sizeof(u));
+(gdb) x &u
+0x7fffffffe668:	0x7265764f
+(gdb) x/16b &u
+0x7fffffffe668:	0x4f	0x76	0x65	0x72	0x6c	0x61	0x79	0x00
+0x7fffffffe670:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+(gdb) next
+8
+32		printf("%c, %lu, %d, %s\n", u.c, u.l, u.i, &u.l);
+(gdb) next
+O, 34165590585603663, 1919252047, Overlay
+35		return 0;
+
+
+Code Output:
+
+sizeof(gs) = 16,	sizeof(bs) = 24
+bad_struct locations:  s1: 0x7ffcaf5822a0, l1: 0x7ffcaf5822a8, s2: 0x7ffcaf5822b0
+good_struct locations: s1: 0x7ffcaf5822c0, s2: 0x7ffcaf5822c2, l1: 0x7ffcaf5822c8
+sizeof(u) = 8
+unit locations: c: 0x7ffcaf582298, i: 0x7ffcaf582298, l: 0x7ffcaf582298
+34165590585603663
+8
+O, 34165590585603663, 1919252047, Overlay
+
+
+Printf examines the input as a hexadecimal address and it happens to lead to the ASCII values of the word 'Overlay'. That's why when you go to the address of the union, the first 16 bytes spell Overlay and then are padded as 0's after the null terminator of the word.
+
+Union would be useful if you need to save space as it stores everything at the same address so as long as they don't interact or are needed at the same time it saves space. It also keepseverything at the same address so it's easy to keep track of.
+
+Structs would be useful if the variables are going to be used at the same time or interact. It still helps you keep track of the addresses easily though.
+
+
+sizeof(x) = 40
+foo(x) = 8
+sizeof(y) = 80
+foo(y) = 8
+sizeof(z) = 120
+foo(z) = 8
+
+Size difference between foo() and sizeof() is because sizeof() is giving the size of the arrayx in memory and foo() is returning the size of the reference to the first element of x (which is always 8 bytes on a 64bit machine). This is because you aren't passing foo() the array x
+but instead a reference to the first value of x.

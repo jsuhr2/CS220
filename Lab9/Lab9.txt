@@ -1,0 +1,21 @@
+STEP_SIZE times:
+	4 - HDD ACCESS:  4 sec, 048915 micro sec
+	32 - HDD ACCESS:  0 sec, 523750 micro sec
+	128 - HDD ACCESS:  0 sec, 182653 micro sec
+	1024 - HDD ACCESS:  0 sec, 037126 micro sec
+
+Memory Tests:
+	1 - 	MEM SERIAL ACCESS:  2 sec, 611744 micro sec
+		MEM PAGE STEP ACCESS:  2 sec, 298117 micro sec
+	4 -	MEM SERIAL ACCESS:  0 sec, 000000 micro sec
+		MEM PAGE STEP ACCESS:  0 sec, 000019 micro sec
+	32 -	MEM SERIAL ACCESS:  0 sec, 000000 micro sec
+		MEM PAGE STEP ACCESS:  0 sec, 000017 micro sec
+	128 -	MEM SERIAL ACCESS:  0 sec, 000000 micro sec
+		MEM PAGE STEP ACCESS:  0 sec, 000018 micro sec
+
+Page Faults:
+	1 - 786,992
+	4 - 49
+	32 - 51
+	128 - 49

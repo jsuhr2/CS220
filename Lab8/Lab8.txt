@@ -1,0 +1,14 @@
+Another way to implement BIT_CLEAR:
+	#define BIT_CLEAR(v, mask)	(v &= (~(1) << (mask)))
+
+
+Get Outputs:
+1810 - Page Offset
+7 - ID
+192 - Tag
+
+Set Ouputs:
+4145188208 - Page Offset
+4145201370 - ID
+4145201159 - Tag
+

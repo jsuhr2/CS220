@@ -1,0 +1,48 @@
+fork.c:
+
+1.) Whichever proces finishes first is the one that gets printed first. Since the functions are identical, either one can finish first.
+
+2.) Due to the sleep function, child will always come first as it is now faster.
+
+3.)	Parent's ID: 2321
+	Child's ID: 2322
+
+4.)	1st Instance of PPID: 2368
+	Parent's ID: 2368
+	2nd Instance of PPID: 1503
+
+5.) Since x is a local variable, when the fork happens each process has its own view of x and thus manipulates x in different ways.
+
+
+
+multifork.c:
+
+1.)	Line 1: 2
+	Line 2: 4
+	Line 3: 4
+	Line 4: 4
+
+2.)
+2530: 1503: Line 1
+2530: 1503: Line 2
+2531: 2530: Line 1
+2532: 2530: Line 2
+2530: 1503: Line 4
+2533: 2530: Line 3
+2532: 2530: Line 4
+2531: 2530: Line 2
+2534: 2532: Line 3
+2535: 2531: Line 2
+2531: 1: Line 4
+2535: 2531: Line 4
+2536: 2531: Line 3
+2537: 2535: Line 3
+
+The PPID is 1 for some processes because its the first process that runs.
+
+
+
+runner.c:
+
+Output:	Child pid = 2644, parent pid = 2643
+	My pid is 2644, parent pid is 2643.
